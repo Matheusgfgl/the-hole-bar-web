@@ -30,6 +30,23 @@ $leading-normal: 1.5;
 $leading-xl: 30px;
 $leading-2xl: 32px;
 
+// -- Radius
+// Ex.: border-radius: $radius-none;
+$radius-none: 0;          // 0px
+$radius-sm: 0.125rem;     // 2px
+$radius-normal: 0.25rem;  // 4px
+$radius-md: 0.375rem;     // 6px
+$radius-lg: 0.5rem;       // 8px
+$radius-xl: 0.625rem;     // 10px
+$radius-full: 9999px;     // rounded
+
+// -- Border Size
+// Ex.: border-width: $border-1;
+$border-nome: 0;
+$border-1: 0.06rem;
+$border-2: 0.12rem;
+$border-3: 0.24rem;
+
 // -- Letter Spacing
 // Ex.: letter-spacing: $tracking-tight;
 $tracking-normal: 0;

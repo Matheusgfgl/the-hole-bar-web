@@ -16,3 +16,65 @@ $pale-grey          : #EFF3F4;
 $icon               : #888888;
 $login-background   : #84848480;
 $error              : #d32f2f;
+
+/*
+ * --- Fonts
+*/
+
+// -- Weight
+$font-thin: 100;
+$font-extra-light: 200;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-semi-bold: 600;
+$font-bold: 700;
+$font-extra-bold: 800;
+
+// -- Size
+// Ex.: font-size: $text-sm;    
+$text-2xs: 12px;
+$text-xs: 13px;
+$text-sm: 14px;
+$text-base: 16px;
+$text-lg: 18px;
+$text-xl: 20px;
+$text-2xl: 22px;
+$text-3xl: 24px;
+$text-4xl: 28px;
+
+// -- Line height
+// Ex.: line-height: $leading-tight;
+$leading-normal: 1.5;
+$leading-xl: 30px;
+$leading-2xl: 32px;
+
+// -- Radius
+// Ex.: border-radius: $radius-none;
+$radius-none: 0;          // 0px
+$radius-sm: 0.125rem;     // 2px
+$radius-normal: 0.25rem;  // 4px
+$radius-md: 0.375rem;     // 6px
+$radius-lg: 0.5rem;       // 8px
+$radius-xl: 0.625rem;     // 10px
+$radius-full: 9999px;     // rounded
+
+// -- Border Size
+// Ex.: border-width: $border-1;
+$border-nome: 0;
+$border-1: 0.06rem;
+$border-2: 0.12rem;
+$border-3: 0.24rem;
+
+// -- Letter Spacing
+// Ex.: letter-spacing: $tracking-tight;
+$tracking-normal: 0;
+
+// -- Z-index
+$z--1: -1;
+$z-0: 0;
+$z-10: 10;
+$z-20: 20;
+$z-30: 30;
+$z-40: 40;
+$z-50: 50;

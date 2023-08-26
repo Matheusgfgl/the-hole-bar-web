@@ -1,23 +1,17 @@
 
 export interface ICocktails {
-  id: number
-  nome: string
-  detalhes: string
-  flagAtivo: boolean | string
-  images: Array<IImage>
+  idDrink: number
+  strDrink: string
+  strDrinkThumb: string
 }
 
-interface IImage {
-  descricao: string
-  src: string
-  type: string
-  file: File
+export interface ICategories {
+  strCategory: string,
 }
 
-export const getEmptyCocktails = (): ICocktails => {
-  const Cocktails = {
-    //
-  }
 
-  return Cocktails
-}
+export const getEmptyCocktails = (): ICocktails => ({
+  idDrink: 0,
+  strDrink: '',
+  strDrinkThumb: '',
+})

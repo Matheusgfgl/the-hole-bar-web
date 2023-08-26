@@ -4,6 +4,8 @@
     "env.d.ts",
     "src/**/*",
     "src/**/*.vue",
+    "src/**/*.ts",
+    "src/views/*.vue",
     "cypress/support/component.*",
     "cypress/support/commands.ts"
   ],

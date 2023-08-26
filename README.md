@@ -1,25 +1,33 @@
 # the-hole-bar
+## Desafio para Frontend Faster
 
-This template should help get you started developing with Vue 3 in Vite.
+Endpoint a ser utilizado será o [TheCocktailDB](https://www.thecocktaildb.com/api.php).
 
-## Recommended IDE Setup
+- Dado que sou um usuário eu quero visualizar as categorias de bebidas 
+    .Ao escolher uma categoria eu devo visualizar a lista das bebidas dessa categoria.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+- Dado que sou um usuário eu quero ver os detalhes da bebida.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+    A aplicação deve apresentar a imagem da bebida escolhida;
+    A aplicação deve apresentar a instrução da bebida escolhida.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+### Obrigatórios
 
-## Customize configuration
+- Disponibilizar documentação para a execução e apresentação do projeto no README;
+- Utilizar typescript;
+- Criar nome para aplicação;
+- Tratamento de erros;
+- Tratamento de rotas não existentes;
+- Aplicação deve ser responsiva;
+- Fácil de buildar e executar a aplicação para testes
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+### Opcionais
+
+- Escrever testes;
+- Documentar decisões tomadas durante o desafio técnico.
 
 ## Project Setup
 

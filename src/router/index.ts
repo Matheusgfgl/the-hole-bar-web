@@ -1,17 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import CategoryPage from '../views/Categories.vue'
+import CotailsPage from '../views/Cocktails.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '',
-      meta: {  },
+      path: '/cocktails',
       component: () => import('../layouts/MainLayout.vue'),
       children: [
         {
           path: '',
-          name: 'home',
-          component: () => import('../layouts/MainLayout.vue'),
+          name: 'cocktailsCategories',
+          component: CategoryPage,
+        },
+        {
+          path: ':category',
+          name: 'CocktailsByCategory',
+          props: (route) => ({ category: String(route.params.category) }),
+          component: CotailsPage,
         },
       ],
     },
@@ -27,8 +35,10 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach(() => {
-  //
+router.onError((error) => {
+  if (error.message.includes('Failed to fetch dynamically imported module') || error.message.includes('Importing a module script failed')) {
+    // window.location = to.fullPath
+  }
 })
 
 export default router
