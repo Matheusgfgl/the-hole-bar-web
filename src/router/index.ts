@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import CategoryPage from '../views/Categories.vue'
-import CotailsPage from '../views/Cocktails.vue'
+import CocktailsPage from '../views/Cocktails.vue'
+import CocktailDetails from '../views/CocktailDetails.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/cocktails',
+      path: '/',
       component: () => import('../layouts/MainLayout.vue'),
       children: [
         {
@@ -15,11 +16,29 @@ const router = createRouter({
           name: 'cocktailsCategories',
           component: CategoryPage,
         },
+      ],
+    },
+    {
+      path: '/cocktails',
+      component: () => import('../layouts/MainLayout.vue'),
+      children: [
         {
           path: ':category',
           name: 'CocktailsByCategory',
           props: (route) => ({ category: String(route.params.category) }),
-          component: CotailsPage,
+          component: CocktailsPage,
+        },
+      ],
+    },
+    {
+      path: '/cocktail',
+      component: () => import('../layouts/MainLayout.vue'),
+      children: [
+        {
+          path: ':id',
+          name: 'CocktailDetails',
+          props: (route) => ({ id: Number(route.params.id) }),
+          component: CocktailDetails,
         },
       ],
     },

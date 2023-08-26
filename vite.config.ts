@@ -23,6 +23,15 @@ export default defineConfig({
       // shared: ['vue']
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/scss/_variables.scss";
+        @import "@/assets/scss/_breakpoints.scss";
+        `,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

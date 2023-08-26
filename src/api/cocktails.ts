@@ -14,4 +14,11 @@ export default {
       url: `/filter.php?c=${category}`,
     })
   },
+
+  getCocktailDetails(id: number) {
+    return theHoleApi({
+      method: 'GET',
+      url: `/lookup.php?i=${id}`,
+    })
+  },
 }

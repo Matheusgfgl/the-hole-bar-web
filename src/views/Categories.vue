@@ -60,12 +60,21 @@ onMounted(async (): Promise<void> => {
 <style scoped lang="scss">
 .category {
   text-align: center;
-  padding: 0rem 5rem;
+  padding: 0 10%;
+  background-color: var(--white);
+
+  @include screen(tablet-big-up) {
+    padding: 2rem 15%;
+  }
 
   &__title {
-    font-size: $text-4xl;
+    font-size: $text-3xl;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+
+    @include screen(tablet-up) {
+      font-size: $text-4xl;
+    }
   }
 
   &__list {
@@ -75,6 +84,10 @@ onMounted(async (): Promise<void> => {
     list-style: none;
     padding: 0;
     margin-top: 20px;
+
+    @include screen(tablet-big-up) {
+      gap: 1.8rem;
+    }
   }
 
   &__item {

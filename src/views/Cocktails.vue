@@ -1,7 +1,7 @@
 <template>
   <div class="cocktails">
     <h1 class="cocktails__title">
-      Cocktails
+      Cocktails - {{ props.category }}
     </h1>
     <div class="cocktails__content">
       <div
@@ -9,14 +9,20 @@
         :key="cocktail.idDrink"
         class="cocktails__item"
       >
-        <img
-          :src="cocktail.strDrinkThumb"
-          :alt="cocktail.strDrink"
-          class="cocktails__item__image"
+        <RouterLink
+          class="cocktails__item__link"
+          :to="{ name: 'CocktailDetails',
+                 params: { id: cocktail.idDrink } }"
         >
-        <p class="cocktails__item__name">
-          {{ cocktail.strDrink }}
-        </p>
+          <img
+            :src="`${cocktail.strDrinkThumb}`"
+            :alt="cocktail.strDrink"
+            class="cocktails__item__image"
+          >
+          <p class="cocktails__item__name">
+            {{ cocktail.strDrink }}
+          </p>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -65,48 +71,58 @@ onMounted(async (): Promise<void> => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 2rem;
+  padding: 2rem 10%;
   background-color: var(--white);
 
+  @include screen(tablet-big-up) {
+    padding: 2rem 15%;
+  }
+
   &__title {
-    font-size: 2rem;
+    font-size: $text-4xl;
     font-weight: bold;
-    margin: 0 0 1rem;
+    margin: 0 0 2rem;
   }
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    gap: 2rem;
 
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    @include screen(tablet-up) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
     }
 
-    @media (max-width: 480px) {
-      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    @include screen(tablet-big-up) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   &__item {
     background-color: #fff;
-    padding: 20px;
+    padding: 0 0 1.5rem 0;
     border-radius: $radius-lg;
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.3);
     text-align: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &__link {
+      color: var(--black);
+      text-decoration: none;
+    }
 
     &__image {
-      max-width: 100%;
-      max-height: 18rem;
+      width: 100%;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 1.5rem;
     }
 
     &__name {
       font-size: 18px;
       font-weight: bold;
-      margin: 1rem 0;
+      margin: 0.5rem 0;
     }
   }
 }

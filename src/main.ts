@@ -8,7 +8,7 @@ import router from './router'
 import { Quasar, Notify } from 'quasar'
 import '@quasar/extras/material-icons/material-icons.css'
 import 'quasar/src/css/index.sass'
-import './assets/main.scss'
+import './assets/scss/main.scss'
 
 // // Import Components
 // import dayjs from './config/dayjs'

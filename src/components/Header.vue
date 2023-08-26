@@ -4,7 +4,7 @@
       <img
         class="header__logo"
         src="public/img/logo.png"
-        alt="Logo The Hole Bar"
+        alt="The Hole Bar"
       >
     </picture>
   </header>

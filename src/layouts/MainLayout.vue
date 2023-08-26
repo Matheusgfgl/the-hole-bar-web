@@ -17,24 +17,4 @@ import HeaderComponent from '@/components/Header.vue'
 </script>
 
 <style lang="scss" scoped>
-
-.bg-background {
-  background: #ecf0f5;
-}
-
-.bg-sidebar {
-  background: #494959;
-}
-
-.bg-sidebar-open {
-  background: #3e3e4d;
-}
-
-.q-header {
-  z-index: 8000;
-}
-
-.q-drawer--mobile {
-  top: 70px;
-}
 </style>
