@@ -44,6 +44,8 @@ export const useCocktailsStore = defineStore('cocktailsStore', () => {
 
       cocktail.value = response.data.drinks[0] as ICocktailDetails;
 
+      return Promise.resolve({ result: 'ok' });
+
     } catch (e: unknown) {
       return Promise.reject({ result: 'error', error: parseAxiosError(e) });
     }

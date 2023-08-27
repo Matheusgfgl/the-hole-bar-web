@@ -1,18 +1,19 @@
 # the-hole-bar
 ## Desafio para Frontend Faster
 
-Endpoint a ser utilizado será o [TheCocktailDB](https://www.thecocktaildb.com/api.php).
+O desafio esta desponivel [aqui]()
+Endpoint a ser utilizado foi o [TheCocktailDB](https://www.thecocktaildb.com/api.php).
 
-- Dado que sou um usuário eu quero visualizar as categorias de bebidas 
-    .Ao escolher uma categoria eu devo visualizar a lista das bebidas dessa categoria.
+- Dado que sou um usuário eu quero visualizar as categorias de bebidas :white_check_mark:
+    .Ao escolher uma categoria eu devo visualizar a lista das bebidas dessa categoria :white_check_mark:
 
 
-- Dado que sou um usuário eu quero ver os detalhes da bebida.
+- Dado que sou um usuário eu quero ver os detalhes da bebida. :white_check_mark:
 
-    A aplicação deve apresentar a imagem da bebida escolhida;
+    A aplicação deve apresentar a imagem da bebida escolhida; 
     A aplicação deve apresentar a instrução da bebida escolhida.
 
-Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional)
+Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional) :white_check_mark:
 
 ### Obrigatórios
 

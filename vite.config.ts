@@ -17,9 +17,6 @@ export default defineConfig({
     federation({
       name: 'admin',
       filename: 'remoteEntry.js',
-      exposes: {
-        './mfe': './src/mfe.ts',
-      },
       // shared: ['vue']
     }),
   ],
