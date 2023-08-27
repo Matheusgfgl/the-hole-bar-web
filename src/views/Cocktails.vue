@@ -4,26 +4,11 @@
       Cocktails - {{ props.category }}
     </h1>
     <div class="cocktails__content">
-      <div
+      <CocktailCard
         v-for="cocktail in cocktails"
         :key="cocktail.idDrink"
-        class="cocktails__item"
-      >
-        <RouterLink
-          class="cocktails__item__link"
-          :to="{ name: 'CocktailDetails',
-                 params: { id: cocktail.idDrink } }"
-        >
-          <img
-            :src="`${cocktail.strDrinkThumb}`"
-            :alt="cocktail.strDrink"
-            class="cocktails__item__image"
-          >
-          <p class="cocktails__item__name">
-            {{ cocktail.strDrink }}
-          </p>
-        </RouterLink>
-      </div>
+        :cocktail="cocktail"
+      />
     </div>
   </div>
 </template>
@@ -31,6 +16,8 @@
 import { useCocktailsStore } from '@/stores/cocktails';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
+
+import CocktailCard from '@/components/cocktail/Card.vue';
 
 const cocktailsStore = useCocktailsStore();
 
@@ -96,33 +83,6 @@ onMounted(async (): Promise<void> => {
 
     @include screen(tablet-big-up) {
       grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-
-  &__item {
-    background-color: #fff;
-    padding: 0 0 1.5rem 0;
-    border-radius: $radius-lg;
-    box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &__link {
-      color: var(--black);
-      text-decoration: none;
-    }
-
-    &__image {
-      width: 100%;
-      height: auto;
-      margin-bottom: 1.5rem;
-    }
-
-    &__name {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 0.5rem 0;
     }
   }
 }

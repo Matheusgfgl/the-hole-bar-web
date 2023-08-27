@@ -58,7 +58,10 @@
           </span>
         </span>
       </p>
-      <p class="cocktail-details__instructions">
+      <p
+        v-if="cocktail.strInstructions"
+        class="cocktail-details__instructions"
+      >
         <span class="label">Instructions:</span>
         {{ cocktail.strInstructions }}
       </p>
