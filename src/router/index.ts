@@ -42,15 +42,15 @@ const router = createRouter({
         },
       ],
     },
-    // {
-    //   path: '/:catchAll(.*)*',
-    //   component: () => {
-    //     if(!document.body.classList.contains('twig-content-loaded'))
-    //       return import('../views/ErrorNotFound.vue')
-    //     else
-    //       return import('../views/EmptyPageView.vue')
-    //   },
-    // },
+    {
+      path: '/:catchAll(.*)*',
+      component: () => {
+        if(!document.body.classList.contains('twig-content-loaded'))
+          return import('../views/NotFound.vue')
+        else
+          return import('../views/EmptyPageView.vue')
+      },
+    },
   ],
 })
 

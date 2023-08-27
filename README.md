@@ -1,29 +1,31 @@
 # the-hole-bar
 ## Desafio para Frontend Faster
 
-O desafio esta desponivel [aqui]()
+O desafio esta desponivel em produção [aqui](https:64eba09213ef6f15ecf4b8cc--courageous-souffle-410f1fnetlify.app/).
+
 Endpoint a ser utilizado foi o [TheCocktailDB](https://www.thecocktaildb.com/api.php).
 
 - Dado que sou um usuário eu quero visualizar as categorias de bebidas :white_check_mark:
-    .Ao escolher uma categoria eu devo visualizar a lista das bebidas dessa categoria :white_check_mark:
+
+    .Ao escolher uma categoria eu devo visualizar a lista das bebidas dessa categoria  :white_check_mark:
 
 
-- Dado que sou um usuário eu quero ver os detalhes da bebida. :white_check_mark:
+- Dado que sou um usuário eu quero ver os detalhes da bebida.  :white_check_mark:
 
     A aplicação deve apresentar a imagem da bebida escolhida; 
     A aplicação deve apresentar a instrução da bebida escolhida.
 
-Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional) :white_check_mark:
+Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional)   :white_check_mark:
 
 ### Obrigatórios
 
-- Disponibilizar documentação para a execução e apresentação do projeto no README;
-- Utilizar typescript;
-- Criar nome para aplicação;
+- Disponibilizar documentação para a execução e apresentação do projeto no README; :white_check_mark:
+- Utilizar typescript;  :white_check_mark:
+- Criar nome para aplicação;  :white_check_mark:
 - Tratamento de erros;
-- Tratamento de rotas não existentes;
-- Aplicação deve ser responsiva;
-- Fácil de buildar e executar a aplicação para testes
+- Tratamento de rotas não existentes;  :white_check_mark:
+- Aplicação deve ser responsiva;  :white_check_mark:
+- Fácil de buildar e executar a aplicação para testes  
 
 ### Opcionais
 
@@ -53,23 +55,6 @@ npm run build
 ```sh
 npm run test:unit:dev # or `npm run test:unit` for headless testing
 ```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
-```
-
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
