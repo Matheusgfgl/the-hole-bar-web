@@ -3,24 +3,51 @@
     <h1 class="category__title">
       Lista de Categorias de Bebidas
     </h1>
-    <ul
-      v-if="categories"
-      class="category__list"
-    >
-      <li
-        v-for="category in categories"
-        :key="category.strCategory"
-        class="category__item"
-      >
-        <RouterLink
-          class="category__item__link"
-          :to="{ name: 'CocktailsByCategory',
-                 params: { category: category.strCategory } }"
+    <template v-if="loading">
+      <div class="loading">
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+      </div>
+    </template>
+    <template v-else-if="categories">
+      <ul class="category__list">
+        <li
+          v-for="category in categories"
+          :key="category.strCategory"
+          class="category__item"
         >
-          {{ category.strCategory }}
-        </RouterLink>
-      </li>
-    </ul>
+          <RouterLink
+            class="category__item__link"
+            :to="{ name: 'CocktailsByCategory',
+                   params: { category: category.strCategory } }"
+          >
+            {{ category.strCategory }}
+          </RouterLink>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -42,25 +69,33 @@ const {
 const loading = ref(false);
 
 onMounted(async (): Promise<void> => {
+  loading.value = true;
 
-  if(!categories.value.length){
-    loading.value = true;
+  await Promise.all([
+    getCategories(),
+  ]);
 
-    await Promise.all([
-      getCategories(),
-    ]);
-
-    loading.value = false;
-  }
+  loading.value = false;
 
 });
 </script>
 
 
 <style scoped lang="scss">
+.loading {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.8rem;
+
+  &__item {
+    height: 3.5rem;
+    width: 100%;
+  }
+}
 .category {
+  padding: 2rem 10%;
   text-align: center;
-  padding: 0 10%;
   background-color: var(--white);
 
   @include screen(tablet-big-up) {
