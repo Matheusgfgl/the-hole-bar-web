@@ -3,69 +3,100 @@
     <h1 class="cocktail-details__title">
       Detalhes do Cocktail
     </h1>
-    <div class="cocktail-details__content">
-      <div class="cocktail-details__container">
-        <img
-          :src="`${cocktail.strDrinkThumb}`"
-          :alt="cocktail.strDrink"
-          class="cocktail-details__image"
-        >
+    <template v-if="loading">
+      <div class="loading">
+        <div class="loading__content">
+          <div class="loading__thumbnail">
+            <SkeletonElement height="100%" />
+          </div>
+          <div class="loading__tags">
+            <div class="tag">
+              <SkeletonElement height="100%" />
+            </div>
+            <div class="tag">
+              <SkeletonElement height="100%" />
+            </div>
+          </div>
+          <div class="loading__item">
+            <SkeletonElement height="100%" />
+          </div>
+          <div class="loading__item">
+            <SkeletonElement height="100%" />
+          </div>
+          <div class="loading__item">
+            <SkeletonElement height="100%" />
+          </div>
+          <div class="loading__instructions">
+            <SkeletonElement height="100%" />
+          </div>
+        </div>
       </div>
-      <div class="cocktail-details__tags">
-        <span
-          v-for="tag in cocktailTags"
-          :key="tag"
-          class="tag"
+    </template>
+    <template v-else-if="cocktail">
+      <div class="cocktail-details__content">
+        <div class="cocktail-details__container">
+          <img
+            :src="`${cocktail.strDrinkThumb}`"
+            :alt="cocktail.strDrink"
+            class="cocktail-details__image"
+          >
+        </div>
+        <div class="cocktail-details__tags">
+          <span
+            v-for="tag in cocktailTags"
+            :key="tag"
+            class="tag"
+          >
+            {{ tag }}
+          </span>
+        </div>
+        <h4 class="cocktail-details__name">
+          <span class="label">
+            Cocktail -
+          </span>
+          {{ cocktail.strDrink }}
+        </h4>
+        <p class="cocktail-details__ingredients">
+          <span class="label">
+            Ingredients:
+          </span>
+          <span
+            v-for="(ingredient, index) in cocktailIngridients"
+            :key="ingredient"
+          >
+            <span v-if="index === cocktailIngridients.length - 1">
+              and {{ ingredient }}.
+            </span>
+            <span v-else>
+              {{ ingredient }},
+            </span>
+          </span>
+        </p>
+        <p class="cocktail-details__measures">
+          <span class="label">
+            Measures:
+          </span>
+          <span
+            v-for="(measures, index) in cocktailMeasures"
+            :key="measures"
+          >
+            <span v-if="index === cocktailMeasures.length - 1">
+              and {{ measures }}.
+            </span>
+            <span v-else>
+              {{ measures }},
+            </span>
+          </span>
+        </p>
+        <p
+          v-if="cocktail.strInstructions"
+          class="cocktail-details__instructions"
         >
-          {{ tag }}
-        </span>
+          <span class="label">Instructions:</span>
+          {{ cocktail.strInstructions }}
+        </p>
       </div>
-      <h4 class="cocktail-details__name">
-        <span class="label">
-          Cocktail -
-        </span>
-        {{ cocktail.strDrink }}
-      </h4>
-      <p class="cocktail-details__ingredients">
-        <span class="label">
-          Ingredients:
-        </span>
-        <span
-          v-for="(ingredient, index) in cocktailIngridients"
-          :key="ingredient"
-        >
-          <span v-if="index === cocktailIngridients.length - 1">
-            and {{ ingredient }}.
-          </span>
-          <span v-else>
-            {{ ingredient }},
-          </span>
-        </span>
-      </p>
-      <p class="cocktail-details__measures">
-        <span class="label">
-          Measures:
-        </span>
-        <span
-          v-for="(measures, index) in cocktailMeasures"
-          :key="measures"
-        >
-          <span v-if="index === cocktailMeasures.length - 1">
-            and {{ measures }}.
-          </span>
-          <span v-else>
-            {{ measures }},
-          </span>
-        </span>
-      </p>
-      <p
-        v-if="cocktail.strInstructions"
-        class="cocktail-details__instructions"
-      >
-        <span class="label">Instructions:</span>
-        {{ cocktail.strInstructions }}
-      </p>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -130,6 +161,61 @@ onMounted(async (): Promise<void> => {
 </script>
 
 <style lang="scss" scoped>
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.5rem 8%;
+
+  @include screen(tablet-up) {
+    padding: 1rem 0 1.5rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+
+    @include screen(tablet-up) {
+      margin: 1rem 20% 1.5rem;
+    }
+
+    @include screen(tablet-big-up) {
+      margin: 1rem 28% 1.5rem;
+    }
+  }
+
+  &__thumbnail {
+    height: 18rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  &__tags {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+
+    .tag {
+      width: 5rem;
+      height: 2rem;
+    }
+  }
+
+  &__item {
+    height: 1.8rem;
+    margin-bottom: 1.2rem;
+    width: 100%;
+  }
+
+  &__instructions {
+    height: 5rem;
+    margin-bottom: 1.2rem;
+    width: 100%;
+  }
+}
+
 .cocktail-details {
   padding: 1.5rem 8%;
   text-align: center;

@@ -3,13 +3,37 @@
     <h1 class="cocktails__title">
       Cocktails - {{ props.category }}
     </h1>
-    <div class="cocktails__content">
-      <CocktailCard
-        v-for="cocktail in cocktails"
-        :key="cocktail.idDrink"
-        :cocktail="cocktail"
-      />
-    </div>
+    <template v-if="loading">
+      <div class="loading">
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+        <div class="loading__item">
+          <SkeletonElement height="100%" />
+        </div>
+      </div>
+    </template>
+    <template v-else>
+      <section class="cocktails__content">
+        <CocktailCard
+          v-for="cocktail in cocktails"
+          :key="cocktail.idDrink"
+          :cocktail="cocktail"
+        />
+      </section>
+    </template>
   </div>
 </template>
 <script setup lang="ts">
@@ -53,6 +77,26 @@ onMounted(async (): Promise<void> => {
 
 
 <style lang="scss" scoped>
+.loading {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include screen(tablet-up) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include screen(tablet-big-up) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  &__item {
+    height: 14rem;
+    padding-top: 0.5rem;
+    width: 100%;
+  }
+}
 .cocktails {
   display: flex;
   flex-direction: column;
@@ -75,6 +119,7 @@ onMounted(async (): Promise<void> => {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     gap: 2rem;
+    width: 100%;
 
     @include screen(tablet-up) {
       grid-template-columns: 1fr 1fr;

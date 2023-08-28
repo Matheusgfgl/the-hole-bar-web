@@ -1,7 +1,7 @@
 # the-hole-bar
 ## Desafio para Frontend Faster
 
-O desafio esta desponivel em produção [aqui](https:64eba09213ef6f15ecf4b8cc--courageous-souffle-410f1fnetlify.app/).
+O desafio esta desponivel em produção [aqui](https://64eba09213ef6f15ecf4b8cc--courageous-souffle-410f1f.netlify.app/).
 
 Endpoint a ser utilizado foi o [TheCocktailDB](https://www.thecocktaildb.com/api.php).
 

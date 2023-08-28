@@ -1,5 +1,5 @@
 <template>
-  <section class="card">
+  <div class="card">
     <RouterLink
       class="card__link"
       :to="{ name: 'CocktailDetails',
@@ -13,8 +13,12 @@
       <p class="card__name">
         {{ cocktail.strDrink }}
       </p>
+      <p class="card__id">
+        <b> Id: </b>
+        {{ cocktail.idDrink }}
+      </p>
     </RouterLink>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -31,7 +35,6 @@ defineProps({
 <style scoped lang="scss">
   .card {
     background-color: #fff;
-    padding: 0 0 1rem 0;
     border-radius: $radius-lg;
     box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -46,12 +49,18 @@ defineProps({
     &__image {
       width: 100%;
       height: auto;
+      max-height: 18rem;
     }
 
     &__name {
-      font-size: 18px;
+      font-size: $text-lg;
       font-weight: bold;
-      margin: 1rem 0;
+      margin-top: 1.2rem;
+    }
+
+    &__id {
+      font-size: $text-base;
+      margin: 0.5rem 0 1.2rem;
     }
   }
 </style>

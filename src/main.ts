@@ -4,6 +4,8 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from './App.vue'
 import router from './router'
 
+import SkeletonElement from './components/skeleton/SkeletonElement.vue'
+
 // Import Quasar libraries
 import { Quasar, Notify } from 'quasar'
 import '@quasar/extras/material-icons/material-icons.css'
@@ -17,7 +19,7 @@ const app = createApp(App)
 const pinia = createPinia()
 
 // Components
-
+app.component('SkeletonElement', SkeletonElement);
 
 pinia.use(piniaPluginPersistedstate)
 
