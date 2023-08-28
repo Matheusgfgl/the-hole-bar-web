@@ -21,4 +21,11 @@ export default {
       url: `/lookup.php?i=${id}`,
     })
   },
+
+  searchCocktails(search: string) {
+    return theHoleApi({
+      method: 'GET',
+      url: `/search.php?s=${search}`,
+    })
+  },
 }

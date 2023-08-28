@@ -28,6 +28,12 @@ const router = createRouter({
           props: (route) => ({ category: String(route.params.category) }),
           component: CocktailsPage,
         },
+        {
+          path: '',
+          name: 'CocktailsByName',
+          props: (route) => ({ search: String(route.query.search) }),
+          component: CocktailsPage,
+        },
       ],
     },
     {

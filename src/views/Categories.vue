@@ -47,6 +47,19 @@
           </RouterLink>
         </li>
       </ul>
+      <div class="search">
+        <input
+          v-model="searchQuery"
+          placeholder="Busque pelo nome da bebida"
+          class="search__input"
+        >
+        <button
+          class="search__button"
+          @click.prevent="searchByName()"
+        >
+          Realizar Busca
+        </button>
+      </div>
     </template>
   </div>
 </template>
@@ -55,6 +68,7 @@
 import { useCocktailsStore } from '@/stores/cocktails';
 import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
+import router from '@/router';
 
 const cocktailsStore = useCocktailsStore();
 
@@ -67,6 +81,7 @@ const {
 } = storeToRefs(cocktailsStore);
 
 const loading = ref(false);
+const searchQuery = ref('');
 
 onMounted(async (): Promise<void> => {
   loading.value = true;
@@ -78,6 +93,10 @@ onMounted(async (): Promise<void> => {
   loading.value = false;
 
 });
+
+const searchByName = async () => {
+  router.push({ name: 'CocktailsByName', query: { search: searchQuery.value } });
+}
 </script>
 
 
@@ -100,6 +119,41 @@ onMounted(async (): Promise<void> => {
 
   @include screen(tablet-big-up) {
     padding: 2rem 15%;
+  }
+
+  .search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 50rem;
+
+    &__input {
+      width: 40%;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--gray-300);
+      padding: 0.5rem;
+      font-size: $text-base;
+      font-weight: $font-bold;
+      color: var(--black);
+      text-decoration: none;
+      margin-right: 2rem;
+    }
+
+    &__button {
+      width: 20%;
+      border-radius: $radius-md;
+      border: 1px solid var(--gray-300);
+      padding: 0.5rem;
+      font-size: $text-base;
+      font-weight: $font-bold;
+      color: var(--white);
+      background-color: var(--secondary);
+      cursor: pointer;
+    }
   }
 
   &__title {

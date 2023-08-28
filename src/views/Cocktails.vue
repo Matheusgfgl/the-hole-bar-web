@@ -1,7 +1,16 @@
 <template>
   <div class="cocktails">
-    <h1 class="cocktails__title">
+    <h1
+      v-if="!searchQuery"
+      class="cocktails__title"
+    >
       Cocktails - {{ props.category }}
+    </h1>
+    <h1
+      v-else
+      class="cocktails__title"
+    >
+      Busca por Cocktails - {{ searchQuery }}
     </h1>
     <template v-if="loading">
       <div class="loading">
@@ -42,6 +51,7 @@ import { storeToRefs } from 'pinia';
 import { onMounted, ref } from 'vue';
 
 import CocktailCard from '@/components/cocktail/Card.vue';
+import { useRoute } from 'vue-router';
 
 const cocktailsStore = useCocktailsStore();
 
@@ -55,20 +65,41 @@ const props = defineProps({
 
 const {
   getCocktails,
+  searchCocktails,
 } = cocktailsStore;
 
 const {
 	cocktails,
+  cocktailsByName,
 } = storeToRefs(cocktailsStore);
 
 const loading = ref(false);
+let searchQuery = ref('');
 
 onMounted(async (): Promise<void> => {
-  loading.value = true;
+  searchQuery.value = useRoute().query?.search as string;
 
-  await Promise.all([
-    getCocktails(props.category),
-  ]);
+  if(!props.category && !searchQuery.value)
+    return;
+
+  if(props.category) {
+    loading.value = true;
+
+    await Promise.all([
+      getCocktails(props.category),
+    ]);
+
+    loading.value = false;
+  } else {
+    try {
+      await searchCocktails(searchQuery.value);
+
+    } catch (error) {
+      // console.error(error);
+    }
+
+    cocktails.value = cocktailsByName.value;
+  }
 
   loading.value = false;
 

@@ -13,7 +13,8 @@ Endpoint a ser utilizado foi o [TheCocktailDB](https://www.thecocktaildb.com/api
 - Dado que sou um usuário eu quero ver os detalhes da bebida.  :white_check_mark:
 
     A aplicação deve apresentar a imagem da bebida escolhida; 
-    A aplicação deve apresentar a instrução da bebida escolhida.
+
+    A aplicação deve apresentar a instrução da bebida escolhida;
 
 Dado que sou um usuário eu quero pesquisar uma bebida específica através de um campo de busca.(opcional)   :white_check_mark:
 
@@ -22,7 +23,7 @@ Dado que sou um usuário eu quero pesquisar uma bebida específica através de u
 - Disponibilizar documentação para a execução e apresentação do projeto no README; :white_check_mark:
 - Utilizar typescript;  :white_check_mark:
 - Criar nome para aplicação;  :white_check_mark:
-- Tratamento de erros;
+- Tratamento de erros; :white_check_mark:
 - Tratamento de rotas não existentes;  :white_check_mark:
 - Aplicação deve ser responsiva;  :white_check_mark:
 - Fácil de buildar e executar a aplicação para testes  
